@@ -1,24 +1,28 @@
 {
-    "name": "nezhelskoy/yii2-return-url",
+    "name": "dlds/yii2-return-url",
     "description": "Yii2 ReturnUrl filter",
     "type": "yii2-extension",
-    "keywords": ["yii2", "ReturnUrl", "filter"],
+    "keywords": ["yii2", "return-url", "filter"],
     "license": "BSD-3-Clause",
     "authors": [
         {
-            "name": "Dmitry Nezhelskoy",
-            "email": "dmitry@nezhelskoy.ru",
-            "homepage": "http://nezhelskoy.ru"
+            "name": "Jiri Svoboda",
+            "email": "jiri.svoboda@dlds.cz"
+        },
+        {
+            "name": "Dmitry dlds",
+            "email": "dmitry@dlds.ru",
+            "homepage": "http://dlds.ru"
         }
     ],
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.6.0",
         "yiisoft/yii2": "*"
     },
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "nezhelskoy\\returnUrl\\": ""
+            "dlds\\returnurl\\": ""
         }
     }
 }

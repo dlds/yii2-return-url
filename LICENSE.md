@@ -1,4 +1,4 @@
-Copyright © 2014, Dmitry Nezhelskoy
+Copyright © 2015, Digital Deals
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

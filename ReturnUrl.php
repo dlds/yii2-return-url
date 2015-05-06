@@ -1,12 +1,11 @@
 <?php
 /**
- * @author Dmitry Nezhelskoy <dmitry@nezhelskoy.ru>
- * @link https://github.com/nezhelskoy/yii2-return-url
- * @copyright Copyright (c) 2014 Dmitry Nezhelskoy
- * @license "BSD-3-Clause"
+ * @link http://www.digitaldeals.cz/
+ * @copyright Copyright (c) 2015 Digital Deals s.r.o.
+ * @license http://www.digitaldeals.cz/license/
  */
 
-namespace nezhelskoy\returnUrl;
+namespace dlds\returnurl;
 
 use Yii;
 use yii\base\ActionFilter;
@@ -16,9 +15,8 @@ use yii\base\ActionFilter;
  * 
  * Keep current URL (if it's not an AJAX url) in session so that the browser may be redirected back.
  */
-class ReturnUrl extends ActionFilter
-{
-    
+class ReturnUrl extends ActionFilter {
+
     /**
      * This method is invoked right before an action is to be executed (after all possible filters.)
      * You may override this method to do last-minute preparation for the action.
@@ -27,9 +25,11 @@ class ReturnUrl extends ActionFilter
      */
     public function beforeAction($action)
     {
-        if ( ! Yii::$app->request->getIsAjax()) {
+        if (!Yii::$app->request->getIsAjax())
+        {
             Yii::$app->user->setReturnUrl(Yii::$app->request->getUrl());
         }
+
         return true;
     }
 }

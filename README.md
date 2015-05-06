@@ -13,12 +13,12 @@ In "composer.json" your project, add the following lines:
     ...
     {
         "type": "vcs",
-        "url": "https://github.com/nezhelskoy/yii2-return-url"
+        "url": "https://github.com/dlds/yii2-return-url"
     }
 ],
 "require": {
     ...
-    "nezhelskoy/yii2-return-url": "*"
+    "dlds/yii2-return-url": "*"
 },
 ~~~
 
@@ -37,7 +37,7 @@ public function behaviors()
 {
     return [
         'returnUrl' => [
-            'class' => 'nezhelskoy\returnUrl\ReturnUrl',
+            'class' => 'dlds\returnUrl\ReturnUrl',
         ],
     ];
 }
@@ -51,6 +51,6 @@ Yii::$app->user->getReturnUrl();
 
 ## License
 
-yii2-return-url is released under the BSD License. See [LICENSE.md](https://github.com/nezhelskoy/yii2-return-url/blob/master/LICENSE.md) file for
+yii2-return-url is released under the BSD License. See [LICENSE.md](https://github.com/dlds/yii2-return-url/blob/master/LICENSE.md) file for
 details.
 
