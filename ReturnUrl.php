@@ -7,7 +7,6 @@
 
 namespace dlds\returnurl;
 
-use Yii;
 use yii\base\ActionFilter;
 
 /**
@@ -18,6 +17,11 @@ use yii\base\ActionFilter;
 class ReturnUrl extends ActionFilter {
 
     /**
+     * @var boolean indicates if absolute urls will be kept
+     */
+    public $keepAbsolute = false;
+
+    /**
      * This method is invoked right before an action is to be executed (after all possible filters.)
      * You may override this method to do last-minute preparation for the action.
      * @param Action $action the action to be executed.
@@ -25,9 +29,16 @@ class ReturnUrl extends ActionFilter {
      */
     public function beforeAction($action)
     {
-        if (!Yii::$app->request->getIsAjax())
+        if (!\Yii::$app->request->getIsAjax())
         {
-            Yii::$app->user->setReturnUrl(Yii::$app->request->getUrl());
+            if ($this->keepAbsolute)
+            {
+                \Yii::$app->user->setReturnUrl(\Yii::$app->request->getAbsoluteUrl());
+            }
+            else
+            {
+                \Yii::$app->user->setReturnUrl(\Yii::$app->request->getUrl());
+            }
         }
 
         return true;
