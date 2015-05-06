@@ -9,13 +9,6 @@ This is Yii2 port of [set-return-url-filter](https://github.com/yiiext/set-retur
 In "composer.json" your project, add the following lines:
 
 ~~~javascript
-"repositories": [
-    ...
-    {
-        "type": "vcs",
-        "url": "https://github.com/dlds/yii2-return-url"
-    }
-],
 "require": {
     ...
     "dlds/yii2-return-url": "*"
