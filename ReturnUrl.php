@@ -29,18 +29,39 @@ class ReturnUrl extends ActionFilter {
      */
     public function beforeAction($action)
     {
-        if (!\Yii::$app->request->getIsAjax())
+        if (!\Yii::$app->getRequest()->getIsAjax())
         {
             if ($this->keepAbsolute)
             {
-                \Yii::$app->user->setReturnUrl(\Yii::$app->request->getAbsoluteUrl());
+                \Yii::$app->getUser()->setReturnUrl(\Yii::$app->getRequest()->getAbsoluteUrl());
             }
             else
             {
-                \Yii::$app->user->setReturnUrl(\Yii::$app->request->getUrl());
+                \Yii::$app->getUser()->setReturnUrl(\Yii::$app->getUrlManager()->parseRequest(\Yii::$app->getRequest()));
             }
         }
 
         return true;
+    }
+
+    /**
+     * Retrieves stored return url
+     * @param mixed $default holds default url to be retrieved
+     */
+    public static function load($default = null, $clear = true)
+    {
+        if (\Yii::$app)
+        {
+            $previous = \Yii::$app->getUser()->getReturnUrl($default);
+
+            if ($clear)
+            {
+                \Yii::$app->getSession()->remove(\Yii::$app->getUser()->returnUrlParam);
+            }
+
+            return $previous;
+        }
+
+        return false;
     }
 }
